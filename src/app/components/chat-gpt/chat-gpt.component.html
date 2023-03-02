@@ -1,0 +1,27 @@
+<h2>Chat with ChatGPT</h2>
+
+<div>
+  <div>
+    <textarea
+      [(ngModel)]="latestMessage"
+      cols="50"
+      rows="5"
+      placeholder="Enter your message here.."
+    ></textarea>
+    <button class="button fancy-button" (click)="send()">Send</button>
+  </div>
+
+  <div class="chat-container">
+    <div class="button fancy-button" *ngIf="isLoading">
+      ChatGPT is thinking ... <i class="material-icons">hourglass_empty</i>
+    </div>
+    <div *ngFor="let item of chat.slice().reverse()">
+      <div *ngIf="item.role === 'assistant'">
+        <p>ChatGPT: {{ item.content }}</p>
+      </div>
+      <div *ngIf="item.role !== 'assistant'">
+        <p class="color-blue">You: {{ item.content }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<h2>Welcome to DWH Webshop!</h2>
+
+<h3> 
+  Here are some available products:
+</h3>
+
+<div *ngFor="let product of products">
+  <div class="product-item">
+    <a [title]="product.name + ' details'" 
+       [routerLink]="['/products', product.id]">
+      {{ product.name }}
+
+      <div class="product-image-preview">
+        <img [src]="product.img" alt="image">
+      </div>
+    </a>
+  </div>
+
+</div>
