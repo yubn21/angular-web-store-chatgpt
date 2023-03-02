@@ -19,13 +19,16 @@ export class OpenAIService {
       Authorization: `Bearer ${this.openaiApiKey}`,
     });
 
+    /*
+      temperature: higher values like 0.8 will make the output more random
+      presence_penlty: postive value increases the model's likelihood to talk about new topics.
+    */
     var body = {
       model: 'text-davinci-003',
       prompt: message,
       temperature: 1,
       max_tokens: 150,
       presence_penalty: 0.6,
-      stop: [' You:', ' AI:'],
     };
 
     return this.http.post(api, body, { headers });

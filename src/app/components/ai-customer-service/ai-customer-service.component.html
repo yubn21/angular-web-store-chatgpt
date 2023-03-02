@@ -6,7 +6,7 @@
   <img src="assets/img/ai.jpg" alt="image" />
 </div>
 
-<div>
+<div class="chat-container">
   <div>
     <textarea
       [(ngModel)]="latestMessage"
@@ -17,7 +17,7 @@
     <button class="button fancy-button" (click)="send()">Send</button>
   </div>
 
-  <div class="chat-container">
+  <div class="chat-box">
     <div class="button fancy-button" *ngIf="isLoading">
       AI assistant is typing ... <i class="material-icons">hourglass_empty</i>
     </div>

@@ -1,6 +1,6 @@
 <h2>Chat with ChatGPT</h2>
 
-<div>
+<div class="chat-container">
   <div>
     <textarea
       [(ngModel)]="latestMessage"
@@ -11,7 +11,7 @@
     <button class="button fancy-button" (click)="send()">Send</button>
   </div>
 
-  <div class="chat-container">
+  <div class="chat-box">
     <div class="button fancy-button" *ngIf="isLoading">
       ChatGPT is thinking ... <i class="material-icons">hourglass_empty</i>
     </div>
@@ -20,7 +20,7 @@
         <p>ChatGPT: {{ item.content }}</p>
       </div>
       <div *ngIf="item.role !== 'assistant'">
-        <p class="color-blue">You: {{ item.content }}</p>
+        <p class="color-green">You: {{ item.content }}</p>
       </div>
     </div>
   </div>

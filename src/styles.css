@@ -104,8 +104,6 @@ button:disabled {
   cursor: auto;
 }
 
-/* Fancy Button */
-
 .fancy-button {
   background-color: white;
   color: #7a45ac;
@@ -207,9 +205,18 @@ app-bottom-bar h3 {
   color: #4594ac;
 }
 
-/* other */
+.color-green {
+  color: rgb(16, 107, 54);
+}
+
+/* container */
 .chat-container {
+  width: 100%;
+}
+
+.chat-box {
   overflow: auto;
   height: 300px;
+  width: 600px;
   border: 2px solid rgb(12, 90, 45);
 }
