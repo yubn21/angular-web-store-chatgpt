@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Message } from '../interfaces';
+import { Message, OpenAIChatCompletionResponseData } from '../interfaces';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -34,7 +35,9 @@ export class OpenAIService {
     return this.http.post(api, body, { headers });
   }
 
-  postMessageToChatCompletionAPI(messages: Message[]) {
+  postMessageToChatCompletionAPI(
+    messages: Message[]
+  ): Observable<OpenAIChatCompletionResponseData> {
     var api: string = 'https://api.openai.com/v1/chat/completions';
 
     var headers = new HttpHeaders({
@@ -47,6 +50,8 @@ export class OpenAIService {
       messages: messages,
     };
 
-    return this.http.post(api, body, { headers });
+    return this.http.post<OpenAIChatCompletionResponseData>(api, body, {
+      headers,
+    });
   }
 }
